@@ -1,5 +1,5 @@
 # Intro-to-Data-Science---Final-Project
-# Introduction: Shooting is one of the many genres in videogames. But how popular is it among players?
+# Introduction: Shooting is one of the many genres in videogames. But how popular is it among other genres?
   #How many shooter games there are out of all other genres?
   #What is the total revenue of shooter games compared to other generes?
   #Has the game studio and or publisher mainly released shooter games?
