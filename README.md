@@ -23,6 +23,9 @@
 #Ideas for graphs: 
 
 1. Have a bar chart with the ammount of games in each genre or tag. 
-2. Histogram showing an increase or decrease in FPS/Shooting games
+2. Histogram showing an increase or decrease in FPS/Shooting games overtime
 3. Filter publisher/studios who are making a majority of FPS/Shooting content and make a top 5
-4. 
+4. Comparing reviews of the top 3-5 genres
+5. Most popular tags for FPS/Shooting
+6. Compare FPS/Shooting Prices
+
