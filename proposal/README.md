@@ -29,3 +29,12 @@
 5. Most popular tags for FPS/Shooting
 6. Compare FPS/Shooting Prices
 
+#Sub Questions with the graphs
+
+  #How many shooter games are there out of all the other genres?
+    1. Have a bar chart with the amount of games in each genre or tag.
+    2. Make a graph that includes only FPS, action, and shooting games.
+  #What is the studio's the created these kinds of games popularity through gaming?
+    1. Filter publisher/studios who are making a majority of FPS/Shooting content and make a top 5
+    2. (Maybe) Pie chart for the genre of games that the studio/publisher created.
+   
