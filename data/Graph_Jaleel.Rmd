@@ -26,10 +26,14 @@ Genres
 
 
 ```
+
+
 ```{r}
 #Filter selected generes: Action, FPS, Sci-Fi, Puzzle, Indie, Strategy, RPG, Racing, Casual, Horror, Stealth, Shooter, Simulation
 #Maybe create a function that has all of the functions \ Make a column out of info
 #May have to add different vriables to each genre
+
+
 
 Action_Genre <- filter (steam_data, Genres == "Action") #Add as an outlier
 Action_Genre
@@ -46,11 +50,12 @@ Puzzle_Genre
 Indie_Genre <- filter (steam_data, Genres == "Indie") 
 Indie_Genre
 
-Strategy_Genre <- filter (steam_data, Genres == "Strategy") #Add Stealth, Simulation
-Strategy_Genre
 
-RPG_Genre <- filter (steam_data, Genres == "RPG")
-RPG_Genre
+Strategy_Genre <- steam_data %>% 
+  filter(str_detect(steamspy_tags, "Strategy")) #Maybe add stealth, simulation
+
+RPG_Genre <- steam_data %>% 
+  filter(str_detect(steamspy_tags, "RPG"))
 
 Racing_Genre <- filter (steam_data, Genres == "Racing")
 Racing_Genre
@@ -76,8 +81,13 @@ Simulation_Genre
 
 Indie <- c(Indie_Genre)
 RPG <- c(RPG_Genre)
-Strategy <- c(Strategy_Genre)
-df <- data.frame(Indie, RPG, Strategy)
+Strategy <- c(Strategy)
+```
+
+```{r}
+steam_filtered <- steam_data %>% 
+  filter (genres %in% c("Action", "FPS", "Sci-Fi", "Puzzle", "Indie","Strategy","RPG", "Racing", "Casual", "Horror", "Stealth", "Shooter", "Simulation"))
+steam_filtered
 ```
 
 ```{r}
@@ -89,9 +99,18 @@ number_of_games
 ggplot(number_of_games, aes(x = genres, y = count)) +
  geom_col(state = 'identity')
 ```
+```{r}
+number_of_games<- steam_filtered %>% 
+  group_by("Action", "FPS", "Sci-Fi", "Puzzle", "Indie","Strategy","RPG", "Racing", "Casual", "Horror", "Stealth", "Shooter", "Simulation") %>% 
+  summarise(count = n())
+
+number_of_games
+ggplot(number_of_games, aes(x = steam_filtered, y = number_of_games)) +
+ geom_col() #state = 'identity'
+```
 
 ```{r}
 ggplot(data = steam_data) +
   geom_bar(aes(x = genres, y = n()), color = "blue")
 labs(title = "Amount of games per genre", x = "Genre", y = "")
-
+```
