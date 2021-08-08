@@ -1,0 +1,97 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(tidyverse)
+library(tidyr)
+library(dplyr)
+library(readr)
+```
+
+```{r}
+
+
+steam_data <- read.csv(url("https://raw.githubusercontent.com/CaptainBlast096/Intro-to-Data-Science---Final-Project/main/data/steam.csv?token=AURDUTMW7CNDCLRYOH2CX6TBB4Y64"))
+
+steam_data
+```
+
+```{r}
+colnames(steam_data)
+Genres <- steam_data %>% select ("steamspy_tags")
+Genres
+
+
+```
+```{r}
+#Filter selected generes: Action, FPS, Sci-Fi, Puzzle, Indie, Strategy, RPG, Racing, Casual, Horror, Stealth, Shooter, Simulation
+#Maybe create a function that has all of the functions \ Make a column out of info
+#May have to add different vriables to each genre
+
+Action_Genre <- filter (steam_data, Genres == "Action") #Add as an outlier
+Action_Genre
+
+FPS_Genre <- filter (steam_data, Genres == "FPS") #0 | Add Shooter, Stealth, 
+FPS_Genre
+
+Sci_Fi_Genre <- filter (steam_data, Genres == "Sci-Fi") #0
+Sci_Fi_Genre
+
+Puzzle_Genre <- filter (steam_data, Genres == "Puzzle") #0
+Puzzle_Genre
+
+Indie_Genre <- filter (steam_data, Genres == "Indie") 
+Indie_Genre
+
+Strategy_Genre <- filter (steam_data, Genres == "Strategy") #Add Stealth, Simulation
+Strategy_Genre
+
+RPG_Genre <- filter (steam_data, Genres == "RPG")
+RPG_Genre
+
+Racing_Genre <- filter (steam_data, Genres == "Racing")
+Racing_Genre
+
+Casual_Genre <- filter (steam_data, Genres == "Casual")
+Casual_Genre
+
+Horror_Genre <- filter (steam_data, Genres == "Horror") #0
+Horror_Genre
+
+Stealth_Genre <- filter (steam_data, Genres == "Stealth") #0
+Stealth_Genre
+
+Shooter_Genre <- filter (steam_data, Genres == "Shooter") #0
+Shooter_Genre
+
+Simulation_Genre <- filter (steam_data, Genres == "Simulation") 
+Simulation_Genre
+
+```
+```{r}
+#Try making a dataframe
+
+Indie <- c(Indie_Genre)
+RPG <- c(RPG_Genre)
+Strategy <- c(Strategy_Genre)
+df <- data.frame(Indie, RPG, Strategy)
+```
+
+```{r}
+number_of_games<- steam_data %>% 
+  group_by(genres) %>% 
+  summarise(count = n())
+
+number_of_games
+ggplot(number_of_games, aes(x = genres, y = count)) +
+ geom_col(state = 'identity')
+```
+
+```{r}
+ggplot(data = steam_data) +
+  geom_bar(aes(x = genres, y = n()), color = "blue")
+labs(title = "Amount of games per genre", x = "Genre", y = "")
+
