@@ -14,7 +14,7 @@ library(readr)
 ```{r}
 
 
-steam_data <- read.csv(url("https://raw.githubusercontent.com/CaptainBlast096/Intro-to-Data-Science---Final-Project/main/data/steam.csv?token=AURDUTMW7CNDCLRYOH2CX6TBB4Y64"))
+steam_data <- read.csv(url("https://raw.githubusercontent.com/CaptainBlast096/Intro-to-Data-Science---Final-Project/main/data/steam.csv?token=AURDUTNV5Q6XH2E6BMHB5ADBCCASW"))
 
 steam_data
 ```
@@ -86,19 +86,18 @@ Strategy <- c(Strategy)
 
 ```{r}
 steam_filtered <- steam_data %>% 
-  filter (genres %in% c("Action", "FPS", "Sci-Fi", "Puzzle", "Indie","Strategy","RPG", "Racing", "Casual", "Horror", "Stealth", "Shooter", "Simulation"))
+  filter (genres %in% c("Action", "FPS", "Sci-Fi", "Puzzle", "Indie","Strategy", "Racing","RPG", "Casual", "Horror", "Stealth", "Shooter", "Simulation"))
 steam_filtered
+
+FPS <- steam_data %>%  filter(str_detect(steamspy_tags, "FPS"))
+FPS
 ```
 
 ```{r}
-number_of_games<- steam_data %>% 
-  group_by(genres) %>% 
-  summarise(count = n())
-
-number_of_games
-ggplot(number_of_games, aes(x = genres, y = count)) +
- geom_col(state = 'identity')
+steam_filtered %>% ggplot(aes(x = genres)) + geom_bar()
+FPS %>% ggplot(aes(x = "FPS")) + geom_bar() #How many FPS Games there are
 ```
+
 ```{r}
 number_of_games<- steam_filtered %>% 
   group_by("Action", "FPS", "Sci-Fi", "Puzzle", "Indie","Strategy","RPG", "Racing", "Casual", "Horror", "Stealth", "Shooter", "Simulation") %>% 
@@ -106,7 +105,7 @@ number_of_games<- steam_filtered %>%
 
 number_of_games
 ggplot(number_of_games, aes(x = steam_filtered, y = number_of_games)) +
- geom_col() #state = 'identity'
+ geom_col(stat = "identity") #stat = 'identity'
 ```
 
 ```{r}
