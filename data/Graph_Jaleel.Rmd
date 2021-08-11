@@ -20,6 +20,8 @@ steam_data
 
 ```{r}
 colnames(steam_data)
+nrow(steam_data)
+glimpse(steam_data)
 ```
 
 ```{r}
@@ -80,9 +82,8 @@ nrow(Simulation)
 Top_Games <- data.frame (Genres = c("Action", "FPS", "Shooter", "Sci-fi", "Puzzle", "Indie", "Strategy", "Racing", "RPG", "Casual", "Horror", "Simulation"), Amount = c(10344,405,227,157,1167,16232,4180,765,2863,8205,566,3284))
 
 
-#ggplot(Top_Games, aes(x = Genres, y = Ammount_of_games)) + geom_col(fill = "black") 
-ggplot(Top_Games, aes(x = Genres, y = Amount, fill = Genres,)) + geom_bar(stat = "identity", width = 0.5) + coord_flip()
-
+#ggplot(Top_Games, aes(x = Genres, y = Amount_of_games)) + geom_col(fill = "black") 
+ggplot(Top_Games, aes(x = Genres, y = Amount, fill = Genres,)) + geom_bar(stat = "identity", width = 0.5) + labs(title = "Number of games in each genre", x = "", y = "Amount (per game)") + coord_flip()
 ```
 
 
