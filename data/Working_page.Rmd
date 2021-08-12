@@ -1,13 +1,17 @@
 ---
-title: "Final Project"
+title: "Working Data"
 output: html_notebook
 ---
 
 ```{r}
 #Downloading Code
 
-steam_data <- read.csv(url("https://raw.githubusercontent.com/CaptainBlast096/Intro-to-Data-Science---Final-Project/main/data/steam.csv?token=AON2KNLRXBYXQH6CBBEABEDBB2SZS"))
+steam_data <- read.csv(url("https://raw.githubusercontent.com/CaptainBlast096/Intro-to-Data-Science---Final-Project/main/data/steam.csv?token=AURDUTO42XY3WWJK25M3HO3BCSEUG"))
 
+steam_data
+
+colnames(steam_data)
 dim(steam_data)
+glimpse(steam_data)
 ```
 
