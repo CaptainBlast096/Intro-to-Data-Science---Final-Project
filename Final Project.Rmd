@@ -18,9 +18,10 @@ steam_data <- read.csv(url("https://raw.githubusercontent.com/CaptainBlast096/In
 steam_data
 ```
 
+
 ```{r}
 colnames(steam_data)
-nrow(steam_data)
+dim(steam_data)
 glimpse(steam_data)
 ```
 
